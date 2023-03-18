@@ -1,0 +1,1 @@
+export let sum = async(a, b) => a + b
