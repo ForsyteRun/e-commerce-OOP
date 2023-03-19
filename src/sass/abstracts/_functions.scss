@@ -1,0 +1,13 @@
+@mixin flex ($position){
+  display: flex;
+  justify-content: $position;
+  align-items: $position;
+}
+
+%font {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 24px;
+  font-weight: 400;
+ 
+}
+
