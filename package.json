@@ -7,7 +7,8 @@
     "start": "set NODE_ENV=development&&webpack serve",
     "dev": "set NODE_ENV=development&&webpack",
     "prod": "set NODE_ENV=production&&webpack",
-    "clear": "rd /s /q dist"
+    "clear": "rd /s /q dist",
+    "deploy": "npx gh-pages -d dist -e dev -m \"feat: update deploy\""
   },
   "browserslist": [
     "last 4 version, not dead, >0.5%"
