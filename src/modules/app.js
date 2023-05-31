@@ -1,6 +1,2 @@
-var App = (function () {
-    function App() {
-    }
-    return App;
-}());
-export default App;
+"use strict";
+console.log("app");

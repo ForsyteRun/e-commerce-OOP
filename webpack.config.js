@@ -13,11 +13,8 @@ module.exports = {
   target,
   devtool,
   entry: {
-    'init' : path.join(__dirname, 'src', 'index.js'), // enter point
-    'app': path.join(__dirname, 'src/modules', 'app.js'),
-    'header': path.join(__dirname, 'src/modules/view/header', 'header.js'),
-    'main': path.join(__dirname, 'src/modules/view/main', 'main.js'),
-    'footer': path.join(__dirname, 'src/modules/view/footer', 'footer.js'),
+    // app: path.join(__dirname, 'src', 'index.js'),
+    modules: ["./src/index.js","./src/modules/app.js", './src/modules/view/header/header.js', './src/modules/view/main/main.js', './src/modules/view/footer/footer.js']
   },
   output: { // output point
     path: path.join(__dirname, 'dist'),
