@@ -1,7 +1,6 @@
-const path = require('path');
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const FileManagerPlugin = require('filemanager-webpack-plugin');
+const path = require('path')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
 const mode = process.env.NODE_ENV || 'development'
 
@@ -10,77 +9,77 @@ const target = devMode ? 'web' : 'browserslist'
 const devtool = devMode ? 'source-map' : undefined
 
 module.exports = {
-  mode, 
+  mode,
   target,
   devtool,
-  entry: path.join(__dirname, 'src', 'index.js'), //enter point
-  output: {                                       // output point
+  entry: path.join(__dirname, 'src', 'index.js'), // enter point
+  output: { // output point
     path: path.join(__dirname, 'dist'),
     clean: true,
     filename: 'index.[contenthash].js',
     assetModuleFilename: 'assets/[name][ext]' // directory for all assets
   },
   plugins: [
-    new HtmlWebpackPlugin({ //convert html to new html
+    new HtmlWebpackPlugin({ // convert html to new html
       template: path.join(__dirname, 'src', 'index.html'),
-      filename: 'index.html',
+      filename: 'index.html'
     }),
-    new MiniCssExtractPlugin({ //create & minify css
-      filename: '[name].[contenthash].css',
-      }),
+    new MiniCssExtractPlugin({ // create & minify css
+      filename: '[name].[contenthash].css'
+    })
   ],
-  module: { 
-     rules: [ 
-      { //load html...
+  module: {
+    rules: [
+      { // load html...
         test: /\.html$/i,
-        loader: "html-loader",
+        loader: 'html-loader'
       },
-      { //scss styles
+      { // scss styles
         test: /\.(scss|css|sass)$/i,
-        use: [ 
-          devMode ? "style-loader" : MiniCssExtractPlugin.loader, 
-          'css-loader', 
+        use: [
+          devMode ? 'style-loader' : MiniCssExtractPlugin.loader,
+          'css-loader',
           'postcss-loader',
-          'sass-loader'],
+          'sass-loader']
       },
-      { //babel compile for adalt browsers
+      { // babel compile for adalt browsers
         test: /\.m?js$/,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader',
           options: {
             presets: [
-              ['@babel/preset-env', { targets: "defaults" }]
+              ['@babel/preset-env', { targets: 'defaults' }]
             ]
           }
         }
       },
-      { //fonts
+      { // fonts
         test: /\.(woff|woff2|eot|ttf|otf)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'fonts/[name][ext]'
         }
       },
-      { //for images
+      { // for images
         test: /\.(png|jpe?g|gif|webp|svg)$/i,
-        use: [ //not svg
+        use: [ // not svg
           {
             loader: 'image-webpack-loader',
             options: {
               mozjpeg: {
-                progressive: true,
+                progressive: true
               },
               // optipng.enabled: false will disable optipng
               optipng: {
-                enabled: false,
+                enabled: false
               },
               pngquant: {
                 quality: [0.65, 0.90],
                 speed: 4
               },
               gifsicle: {
-                interlaced: false,
+                interlaced: false
               },
               // the webp option will enable WEBP
               webp: {
@@ -89,14 +88,14 @@ module.exports = {
             }
           }
         ],
-        type: 'asset/resource',
-      },
-    ],
+        type: 'asset/resource'
+      }
+    ]
   },
-  devServer: { //server online
+  devServer: { // server online
     watchFiles: path.join(__dirname, 'src'),
     hot: true,
     open: true,
     port: 9000
-  },
-};
+  }
+}
