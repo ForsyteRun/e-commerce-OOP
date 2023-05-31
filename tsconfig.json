@@ -4,8 +4,14 @@
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
-    "sourceMap": true,
+    "sourceMap": false,
     "strict": true
   },
-  "files": ["src/index.ts"]
+  "files": [
+    "src/index.ts",
+    "src/modules/app.ts",
+    "src/modules/view/header/header.ts",
+    "src/modules/view/main/main.ts",
+    "src/modules/view/footer/footer.ts"
+  ]
 }
