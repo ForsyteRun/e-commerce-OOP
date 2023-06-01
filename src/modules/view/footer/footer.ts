@@ -1,42 +1,25 @@
-import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
+// import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
 
-export const enum CSSClassesEnum {
-  header = "header",
-  main = "main",
-  footer = "footer",
-}
+// export default class Footer extends View {
+//   elementCreator: ElementCreatorType;
 
-export const enum TextEnum {
-  headerText = "Good morning Header!",
-  mainText = "Good morning Main!",
-  footerText = "Good morning Footer!",
-}
+//   constructor() {
+//     this.elementCreator = this.createView();
+//   }
 
-export interface ViewType {
-  elementCreator: ElementCreatorType;
-  getHTMLElement(): HTMLElement | null;
-}
+//   getHTMLElement(): HTMLElement | null {
+//     return this.elementCreator.getElement();
+//   }
 
-export default class FooterView {
-  elementCreator: ElementCreatorType;
+//   createView(): ElementCreatorType {
+//     const params: ElementParams = {
+//       tag: "footer",
+//       className: [CSSClassesEnum.footer],
+//       textContent: TextEnum.footerText,
+//       callback: () => null,
+//     };
 
-  constructor() {
-    this.elementCreator = this.createView();
-  }
-
-  getHTMLElement(): HTMLElement | null {
-    return this.elementCreator.getElement();
-  }
-
-  createView(): ElementCreatorType {
-    const params: ElementParams = {
-      tag: "footer",
-      className: [CSSClassesEnum.footer],
-      textContent: TextEnum.footerText,
-      callback: () => null,
-    };
-
-    const elementCreator: ElementCreatorType = new ElementCreator(params);
-    return elementCreator;
-  }
-}
+//     const elementCreator: ElementCreatorType = new ElementCreator(params);
+//     return elementCreator;
+//   }
+// }

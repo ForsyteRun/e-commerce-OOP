@@ -1,6 +1,6 @@
 export interface ElementParams {
   tag: string;
-  className: Array<string>;
+  className: string;
   textContent: string;
   callback: (event: Event) => HTMLElement | null;
 }
@@ -30,8 +30,8 @@ export default class ElementCreator {
     return this.element;
   }
 
-  setCSSClasses(cssClasses: Array<string>): void {
-    cssClasses.forEach((el: string) => this.element?.classList.add(el));
+  setCSSClasses(cssClasses: string): void {
+    this.element?.classList.add(cssClasses);
   }
 
   setTextContent(textContent: string): void {
@@ -40,7 +40,7 @@ export default class ElementCreator {
     }
   }
 
-  setCallback(callback: (event: Event) => void): void {
+  setCallback(callback: (event: Event) => HTMLElement | null): void {
     this.element?.addEventListener("click", (event: Event) => callback(event));
   }
 }

@@ -13,8 +13,8 @@ var ElementCreator = (function () {
         return this.element;
     };
     ElementCreator.prototype.setCSSClasses = function (cssClasses) {
-        var _this = this;
-        cssClasses.forEach(function (el) { var _a; return (_a = _this.element) === null || _a === void 0 ? void 0 : _a.classList.add(el); });
+        var _a;
+        (_a = this.element) === null || _a === void 0 ? void 0 : _a.classList.add(cssClasses);
     };
     ElementCreator.prototype.setTextContent = function (textContent) {
         if (this.element) {

@@ -12,7 +12,14 @@ module.exports = {
   mode,
   target,
   devtool,
-  entry: ["./src/index.js","./src/modules/app.js", './src/modules/view/header/header.js', './src/modules/view/main/main.js', './src/modules/view/footer/footer.js'],
+  entry: [
+    "./src/index.js",
+    "./src/modules/app.js", 
+    './src/modules/view/view.js',
+    './src/modules/view/header/header.js', 
+    './src/modules/view/main/main.js', 
+    './src/modules/view/footer/footer.js', 
+  ],
   output: { // output point
     path: path.join(__dirname, 'dist'),
     clean: true,
