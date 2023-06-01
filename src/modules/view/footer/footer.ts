@@ -1,25 +1,15 @@
-// import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
+import { ElementParams } from "../../util/element-creator";
+import View, { CSSClassesEnum, TagEnum, TextEnum } from "../view";
 
-// export default class Footer extends View {
-//   elementCreator: ElementCreatorType;
+export default class Footer extends View {
+  constructor() {
+    const data: ElementParams = {
+      tag: TagEnum.footer,
+      className: CSSClassesEnum.footer,
+      textContent: TextEnum.footerText,
+      callback: () => null,
+    };
 
-//   constructor() {
-//     this.elementCreator = this.createView();
-//   }
-
-//   getHTMLElement(): HTMLElement | null {
-//     return this.elementCreator.getElement();
-//   }
-
-//   createView(): ElementCreatorType {
-//     const params: ElementParams = {
-//       tag: "footer",
-//       className: [CSSClassesEnum.footer],
-//       textContent: TextEnum.footerText,
-//       callback: () => null,
-//     };
-
-//     const elementCreator: ElementCreatorType = new ElementCreator(params);
-//     return elementCreator;
-//   }
-// }
+    super(data);
+  }
+}

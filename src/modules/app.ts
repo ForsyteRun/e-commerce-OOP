@@ -1,4 +1,7 @@
 import { ElementCreatorType } from "./util/element-creator";
+import Footer from "./view/footer/footer";
+import Header from "./view/header/header";
+import Main from "./view/main/main";
 import View, { CSSClassesEnum, TagEnum, TextEnum } from "./view/view";
 
 export interface ViewType {
@@ -12,24 +15,9 @@ export default class App {
   }
 
   createView() {
-    const footerView: ViewType = new View({
-      tag: TagEnum.footer,
-      className: CSSClassesEnum.footer,
-      textContent: TextEnum.footerText,
-      callback: () => null,
-    });
-    const headerView: ViewType = new View({
-      tag: TagEnum.header,
-      className: CSSClassesEnum.header,
-      textContent: TextEnum.headerText,
-      callback: () => null,
-    });
-    const mainView: ViewType = new View({
-      tag: TagEnum.main,
-      className: CSSClassesEnum.main,
-      textContent: TextEnum.mainText,
-      callback: () => null,
-    });
+    const footerView: ViewType = new Footer();
+    const headerView: ViewType = new Header();
+    const mainView: ViewType = new Main();
 
     document.body.append(headerView.getHTMLElement() as Node);
     document.body.append(mainView.getHTMLElement() as Node);

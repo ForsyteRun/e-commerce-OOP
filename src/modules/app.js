@@ -1,27 +1,14 @@
-import View from "./view/view";
+import Footer from "./view/footer/footer";
+import Header from "./view/header/header";
+import Main from "./view/main/main";
 var App = (function () {
     function App() {
         this.createView();
     }
     App.prototype.createView = function () {
-        var footerView = new View({
-            tag: "main",
-            className: "footer",
-            textContent: "Good morning Foo999ter!",
-            callback: function () { return null; },
-        });
-        var headerView = new View({
-            tag: "header",
-            className: "header",
-            textContent: "Good morning Header!",
-            callback: function () { return null; },
-        });
-        var mainView = new View({
-            tag: "main",
-            className: "main",
-            textContent: "Good morning Main!",
-            callback: function () { return null; },
-        });
+        var footerView = new Footer();
+        var headerView = new Header();
+        var mainView = new Main();
         document.body.append(headerView.getHTMLElement());
         document.body.append(mainView.getHTMLElement());
         document.body.append(footerView.getHTMLElement());

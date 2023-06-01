@@ -3,7 +3,7 @@ export var TagEnum;
 (function (TagEnum) {
     TagEnum["header"] = "header";
     TagEnum["main"] = "main";
-    TagEnum["footer"] = "main";
+    TagEnum["footer"] = "footer";
 })(TagEnum || (TagEnum = {}));
 export var CSSClassesEnum;
 (function (CSSClassesEnum) {

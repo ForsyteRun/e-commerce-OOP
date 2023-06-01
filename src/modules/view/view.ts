@@ -3,7 +3,7 @@ import ElementCreator, { ElementCreatorType, ElementParams } from "../util/eleme
 export const enum TagEnum {
   header = "header",
   main = "main",
-  footer = "main",
+  footer = "footer",
 }
 
 export const enum CSSClassesEnum {
