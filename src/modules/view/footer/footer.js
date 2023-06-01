@@ -9,6 +9,9 @@ var FooterView = (function () {
     function FooterView() {
         this.elementCreator = this.createView();
     }
+    FooterView.prototype.getHTMLElement = function () {
+        return this.elementCreator.getElement();
+    };
     FooterView.prototype.createView = function () {
         var params = {
             tag: "footer",

@@ -1,11 +1,13 @@
-import ElementCreator, { ElementParams } from "../../util/element-creator";
+// import './footer.css'
+import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
 
 export interface CSSClassesType {
   FOOTER: "footer";
 }
 
-interface ResultObjType {
-  element: HTMLElement | null;
+export interface FooterViewType {
+  elementCreator: ElementCreatorType;
+  getHTMLElement(): HTMLElement | null;
 }
 
 const CSSClasses: CSSClassesType = {
@@ -15,13 +17,17 @@ const CSSClasses: CSSClassesType = {
 const TEXT = "Good morning Footer!";
 
 export default class FooterView {
-  elementCreator: ResultObjType;
+  elementCreator: ElementCreatorType;
 
   constructor() {
     this.elementCreator = this.createView();
   }
 
-  createView(): ResultObjType {
+  getHTMLElement(): HTMLElement | null {
+    return this.elementCreator.getElement();
+  }
+
+  createView(): ElementCreatorType {
     const params: ElementParams = {
       tag: "footer",
       className: [CSSClasses.FOOTER],
@@ -29,7 +35,7 @@ export default class FooterView {
       callback: () => null,
     };
 
-    const elementCreator: ResultObjType = new ElementCreator(params);
+    const elementCreator: ElementCreatorType = new ElementCreator(params);
     return elementCreator;
   }
 }
