@@ -2,3 +2,5 @@ node_modules
 dist
 webpack.config.js
 postcss.confige.js
+dist/*.js
+src/*.js
