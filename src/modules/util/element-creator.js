@@ -1,5 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
 var ElementCreator = (function () {
     function ElementCreator(param) {
         this.element = null;
@@ -29,4 +27,4 @@ var ElementCreator = (function () {
     };
     return ElementCreator;
 }());
-exports.default = ElementCreator;
+export default ElementCreator;

@@ -1,11 +1,10 @@
-// import './footer.css'
 import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
 
 export interface CSSClassesType {
   FOOTER: "footer";
 }
 
-export interface FooterViewType {
+export interface ViewType {
   elementCreator: ElementCreatorType;
   getHTMLElement(): HTMLElement | null;
 }

@@ -1,6 +1,4 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var element_creator_1 = require("../../util/element-creator");
+import ElementCreator from "../../util/element-creator";
 var CSSClasses = {
     FOOTER: "footer",
 };
@@ -19,9 +17,9 @@ var FooterView = (function () {
             textContent: TEXT,
             callback: function () { return null; },
         };
-        var elementCreator = new element_creator_1.default(params);
+        var elementCreator = new ElementCreator(params);
         return elementCreator;
     };
     return FooterView;
 }());
-exports.default = FooterView;
+export default FooterView;

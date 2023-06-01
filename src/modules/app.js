@@ -1,14 +1,18 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-var footer_1 = require("./view/footer/footer");
+import FooterView from "./view/footer/footer";
+import HeaderView from "./view/header/header";
+import MainView from "./view/main/main";
 var App = (function () {
     function App() {
         this.createView();
     }
     App.prototype.createView = function () {
-        var footerView = new footer_1.default();
+        var footerView = new FooterView();
+        var headerView = new HeaderView();
+        var mainView = new MainView();
+        document.body.append(headerView.getHTMLElement());
+        document.body.append(mainView.getHTMLElement());
         document.body.append(footerView.getHTMLElement());
     };
     return App;
 }());
-exports.default = App;
+export default App;
