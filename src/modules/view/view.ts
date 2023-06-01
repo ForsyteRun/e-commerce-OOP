@@ -1,5 +1,11 @@
 import ElementCreator, { ElementCreatorType, ElementParams } from "../util/element-creator";
 
+export const enum TagEnum {
+  header = "header",
+  main = "main",
+  footer = "main",
+}
+
 export const enum CSSClassesEnum {
   header = "header",
   main = "main",

@@ -5,7 +5,7 @@ var App = (function () {
     }
     App.prototype.createView = function () {
         var footerView = new View({
-            tag: "footer",
+            tag: "main",
             className: "footer",
             textContent: "Good morning Foo999ter!",
             callback: function () { return null; },

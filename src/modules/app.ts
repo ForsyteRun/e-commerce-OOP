@@ -1,5 +1,5 @@
 import { ElementCreatorType } from "./util/element-creator";
-import View, { CSSClassesEnum, TextEnum } from "./view/view";
+import View, { CSSClassesEnum, TagEnum, TextEnum } from "./view/view";
 
 export interface ViewType {
   elementCreator: ElementCreatorType;
@@ -13,19 +13,19 @@ export default class App {
 
   createView() {
     const footerView: ViewType = new View({
-      tag: "footer",
+      tag: TagEnum.footer,
       className: CSSClassesEnum.footer,
       textContent: TextEnum.footerText,
       callback: () => null,
     });
     const headerView: ViewType = new View({
-      tag: "header",
+      tag: TagEnum.header,
       className: CSSClassesEnum.header,
       textContent: TextEnum.headerText,
       callback: () => null,
     });
     const mainView: ViewType = new View({
-      tag: "main",
+      tag: TagEnum.main,
       className: CSSClassesEnum.main,
       textContent: TextEnum.mainText,
       callback: () => null,

@@ -1,4 +1,10 @@
 import ElementCreator from "../util/element-creator";
+export var TagEnum;
+(function (TagEnum) {
+    TagEnum["header"] = "header";
+    TagEnum["main"] = "main";
+    TagEnum["footer"] = "main";
+})(TagEnum || (TagEnum = {}));
 export var CSSClassesEnum;
 (function (CSSClassesEnum) {
     CSSClassesEnum["header"] = "header";
