@@ -1,19 +1,21 @@
 import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
 
-export interface CSSClassesType {
-  FOOTER: "footer";
+export const enum CSSClassesEnum {
+  header = "header",
+  main = "main",
+  footer = "footer",
+}
+
+export const enum TextEnum {
+  headerText = "Good morning Header!",
+  mainText = "Good morning Main!",
+  footerText = "Good morning Footer!",
 }
 
 export interface ViewType {
   elementCreator: ElementCreatorType;
   getHTMLElement(): HTMLElement | null;
 }
-
-const CSSClasses: CSSClassesType = {
-  FOOTER: "footer",
-};
-
-const TEXT = "Good morning Footer!";
 
 export default class FooterView {
   elementCreator: ElementCreatorType;
@@ -29,8 +31,8 @@ export default class FooterView {
   createView(): ElementCreatorType {
     const params: ElementParams = {
       tag: "footer",
-      className: [CSSClasses.FOOTER],
-      textContent: TEXT,
+      className: [CSSClassesEnum.footer],
+      textContent: TextEnum.footerText,
       callback: () => null,
     };
 

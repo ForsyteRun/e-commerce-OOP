@@ -1,8 +1,4 @@
 import ElementCreator from "../../util/element-creator";
-var CSSClasses = {
-    HEADER: "header",
-};
-var TEXT = "Good morning Header!";
 var HeaderView = (function () {
     function HeaderView() {
         this.elementCreator = this.createView();
@@ -13,8 +9,8 @@ var HeaderView = (function () {
     HeaderView.prototype.createView = function () {
         var params = {
             tag: "header",
-            className: [CSSClasses.HEADER],
-            textContent: TEXT,
+            className: ["header"],
+            textContent: "Good morning Header!",
             callback: function () { return null; },
         };
         var elementCreator = new ElementCreator(params);

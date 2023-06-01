@@ -1,8 +1,4 @@
 import ElementCreator from "../../util/element-creator";
-var CSSClasses = {
-    MAIN: "main",
-};
-var TEXT = "Good morning Main!";
 var MainView = (function () {
     function MainView() {
         this.elementCreator = this.createView();
@@ -13,8 +9,8 @@ var MainView = (function () {
     MainView.prototype.createView = function () {
         var params = {
             tag: "main",
-            className: [CSSClasses.MAIN],
-            textContent: TEXT,
+            className: ["main"],
+            textContent: "Good morning Main!",
             callback: function () { return null; },
         };
         var elementCreator = new ElementCreator(params);

@@ -1,14 +1,5 @@
 import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
-
-export interface CSSClassesType {
-  MAIN: "main";
-}
-
-const CSSClasses: CSSClassesType = {
-  MAIN: "main",
-};
-
-const TEXT = "Good morning Main!";
+import { CSSClassesEnum, TextEnum } from "../footer/footer";
 
 export default class MainView {
   elementCreator: ElementCreatorType;
@@ -24,8 +15,8 @@ export default class MainView {
   createView(): ElementCreatorType {
     const params: ElementParams = {
       tag: "main",
-      className: [CSSClasses.MAIN],
-      textContent: TEXT,
+      className: [CSSClassesEnum.main],
+      textContent: TextEnum.mainText,
       callback: () => null,
     };
 

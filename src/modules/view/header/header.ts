@@ -1,14 +1,5 @@
 import ElementCreator, { ElementCreatorType, ElementParams } from "../../util/element-creator";
-
-export interface CSSClassesType {
-  HEADER: "header";
-}
-
-const CSSClasses: CSSClassesType = {
-  HEADER: "header",
-};
-
-const TEXT = "Good morning Header!";
+import { CSSClassesEnum, TextEnum } from "../footer/footer";
 
 export default class HeaderView {
   elementCreator: ElementCreatorType;
@@ -24,8 +15,8 @@ export default class HeaderView {
   createView(): ElementCreatorType {
     const params: ElementParams = {
       tag: "header",
-      className: [CSSClasses.HEADER],
-      textContent: TEXT,
+      className: [CSSClassesEnum.header],
+      textContent: TextEnum.headerText,
       callback: () => null,
     };
 
