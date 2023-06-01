@@ -12,6 +12,15 @@ var ElementCreator = (function () {
     ElementCreator.prototype.getElement = function () {
         return this.element;
     };
+    ElementCreator.prototype.addInnerElement = function (elem) {
+        var _a, _b;
+        if (elem instanceof ElementCreator) {
+            (_a = this.element) === null || _a === void 0 ? void 0 : _a.append(elem.getElement());
+        }
+        else {
+            (_b = this.element) === null || _b === void 0 ? void 0 : _b.append(elem);
+        }
+    };
     ElementCreator.prototype.setCSSClasses = function (cssClasses) {
         var _a;
         (_a = this.element) === null || _a === void 0 ? void 0 : _a.classList.add(cssClasses);

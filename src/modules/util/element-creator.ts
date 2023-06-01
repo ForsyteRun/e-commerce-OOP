@@ -9,6 +9,7 @@ export interface ElementCreatorType {
   element: HTMLElement | null;
   createElement(param: ElementParams): void;
   getElement: () => HTMLElement | null;
+  addInnerElement: (elem: HTMLElement | ElementCreatorType) => void
 }
 
 export default class ElementCreator {
@@ -28,6 +29,14 @@ export default class ElementCreator {
 
   getElement(): HTMLElement | null {
     return this.element;
+  }
+
+  addInnerElement(elem: HTMLElement | ElementCreatorType) {
+    if (elem instanceof ElementCreator) {
+      this.element?.append(elem.getElement() as Node);
+    } else {
+      this.element?.append(elem as Node);
+    }
   }
 
   setCSSClasses(cssClasses: string): void {

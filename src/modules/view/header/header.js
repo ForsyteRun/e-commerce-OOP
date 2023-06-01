@@ -13,18 +13,32 @@ var __extends = (this && this.__extends) || (function () {
         d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
     };
 })();
+import ElementCreator from "../../util/element-creator";
 import View from "../view";
 var Header = (function (_super) {
     __extends(Header, _super);
     function Header() {
+        var _this = this;
         var data = {
             tag: "header",
             className: "header",
             textContent: "Good morning Header!",
             callback: function () { return null; },
         };
-        return _super.call(this, data) || this;
+        _this = _super.call(this, data) || this;
+        _this.configureView();
+        return _this;
     }
+    Header.prototype.configureView = function () {
+        var data = {
+            tag: "nav",
+            className: "nav",
+            textContent: "",
+            callback: function () { return null; },
+        };
+        var elementCreator = new ElementCreator(data);
+        this.elementCreator.addInnerElement(elementCreator);
+    };
     return Header;
 }(View));
 export default Header;

@@ -2,12 +2,14 @@ import ElementCreator from "../util/element-creator";
 export var TagEnum;
 (function (TagEnum) {
     TagEnum["header"] = "header";
+    TagEnum["nav"] = "nav";
     TagEnum["main"] = "main";
     TagEnum["footer"] = "footer";
 })(TagEnum || (TagEnum = {}));
 export var CSSClassesEnum;
 (function (CSSClassesEnum) {
     CSSClassesEnum["header"] = "header";
+    CSSClassesEnum["nav"] = "nav";
     CSSClassesEnum["main"] = "main";
     CSSClassesEnum["footer"] = "footer";
 })(CSSClassesEnum || (CSSClassesEnum = {}));
