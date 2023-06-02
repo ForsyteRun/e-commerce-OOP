@@ -12,4 +12,15 @@ export default class Main extends View {
 
     super(data);
   }
+
+  setContent(view: View) {
+    const element: HTMLElement | null = view.getHTMLElement();
+    const currentElement: HTMLElement | null = this.elementCreator.getElement();
+
+    while (currentElement?.firstElementChild) {
+      currentElement?.firstElementChild.remove();
+    }
+
+    this.elementCreator.addInnerElement(element as HTMLElement);
+  }
 }

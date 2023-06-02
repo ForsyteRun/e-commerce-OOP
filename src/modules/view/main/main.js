@@ -25,6 +25,14 @@ var Main = (function (_super) {
         };
         return _super.call(this, data) || this;
     }
+    Main.prototype.setContent = function (view) {
+        var element = view.getHTMLElement();
+        var currentElement = this.elementCreator.getElement();
+        while (currentElement === null || currentElement === void 0 ? void 0 : currentElement.firstElementChild) {
+            currentElement === null || currentElement === void 0 ? void 0 : currentElement.firstElementChild.remove();
+        }
+        this.elementCreator.addInnerElement(element);
+    };
     return Main;
 }(View));
 export default Main;
