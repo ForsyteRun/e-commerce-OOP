@@ -14,6 +14,7 @@ export default class LinkView extends View {
     super(data);
 
     this.linkElements = linkElements;
+    this.configureView();
   }
 
   setSelectedStatus() {
@@ -26,5 +27,10 @@ export default class LinkView extends View {
   setNotSelectedStatus() {
     const element: HTMLElement | null = this.elementCreator.getElement();
     element?.classList.remove(CSSClassesEnum.linkSelected);
+  }
+
+  configureView() {
+    const element: HTMLElement | null = this.elementCreator.getElement();
+    element?.addEventListener("click", this.setSelectedStatus.bind(this));
   }
 }

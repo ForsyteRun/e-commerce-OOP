@@ -21,7 +21,11 @@ a {
   flex-direction: row;
   justify-content: space-around;
 }
+
 .nav-link {
+  font-size: 24px;
 }
 
-// linkSelected = "link__selected",
+.link__selected {
+  border-bottom: 1px solid #000;
+}

@@ -26,6 +26,7 @@ var LinkView = (function (_super) {
         };
         _this = _super.call(this, data) || this;
         _this.linkElements = linkElements;
+        _this.configureView();
         return _this;
     }
     LinkView.prototype.setSelectedStatus = function () {
@@ -36,6 +37,10 @@ var LinkView = (function (_super) {
     LinkView.prototype.setNotSelectedStatus = function () {
         var element = this.elementCreator.getElement();
         element === null || element === void 0 ? void 0 : element.classList.remove("link__selected");
+    };
+    LinkView.prototype.configureView = function () {
+        var element = this.elementCreator.getElement();
+        element === null || element === void 0 ? void 0 : element.addEventListener("click", this.setSelectedStatus.bind(this));
     };
     return LinkView;
 }(View));
