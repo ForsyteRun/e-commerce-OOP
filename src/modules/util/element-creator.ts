@@ -1,8 +1,8 @@
-export interface ElementParams {
+export interface ElementParams<T = HTMLElement | null> {
   tag: string;
   className: string;
   textContent: string;
-  callback: (event: Event) => HTMLElement | null;
+  callback: (event: Event) => T;
 }
 
 export default class ElementCreator {

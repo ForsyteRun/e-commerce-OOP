@@ -14,11 +14,12 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import ElementCreator from "../../util/element-creator";
+import Home from "../main/home/home";
 import View from "../view";
 import LinkView from "./link/link-view";
 var Header = (function (_super) {
     __extends(Header, _super);
-    function Header() {
+    function Header(mainComponent) {
         var _this = this;
         var data = {
             tag: "header",
@@ -30,10 +31,10 @@ var Header = (function (_super) {
         _this.linkElements = [];
         _this.linkElements = [];
         _this.start_page_number = 0;
-        _this.configureView();
+        _this.configureView(mainComponent);
         return _this;
     }
-    Header.prototype.configureView = function () {
+    Header.prototype.configureView = function (mainComponent) {
         var _this = this;
         var data = {
             tag: "nav",
@@ -43,12 +44,11 @@ var Header = (function (_super) {
         };
         var elementNav = new ElementCreator(data);
         this.elementCreator.addInnerElement(elementNav);
+        var homeView = new Home();
         var pages = [
             {
                 name: "\u0433\u043B\u0430\u0432\u043D\u0430\u044F",
-                callback: function () {
-                    console.log(111);
-                },
+                callback: function () { return mainComponent.setContent(homeView); },
             },
             {
                 name: "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B",

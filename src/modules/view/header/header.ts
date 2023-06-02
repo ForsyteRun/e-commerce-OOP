@@ -1,4 +1,6 @@
 import ElementCreator, { ElementParams } from "../../util/element-creator";
+import Home from "../main/home/home";
+import Main from "../main/main";
 import View, { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from "../view";
 import LinkView from "./link/link-view";
 
@@ -6,7 +8,7 @@ export default class Header extends View {
   start_page_number: number;
   linkElements: Array<LinkView> = [];
 
-  constructor() {
+  constructor(mainComponent: Main) {
     const data: ElementParams = {
       tag: TagEnum.header,
       className: CSSClassesEnum.header,
@@ -16,10 +18,10 @@ export default class Header extends View {
     super(data);
     this.linkElements = [];
     this.start_page_number = 0;
-    this.configureView();
+    this.configureView(mainComponent);
   }
 
-  configureView() {
+  configureView(mainComponent: Main) {
     const data: ElementParams = {
       tag: TagEnum.nav,
       className: CSSClassesEnum.nav,
@@ -36,12 +38,12 @@ export default class Header extends View {
       callback: () => void;
     }
 
+    const homeView = new Home();
+
     const pages: PagesType[] = [
       {
         name: LinkNameEnum.main,
-        callback: () => {
-          console.log(111);
-        },
+        callback: () => mainComponent.setContent(homeView),
       },
       {
         name: LinkNameEnum.products,

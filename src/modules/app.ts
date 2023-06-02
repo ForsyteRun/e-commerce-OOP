@@ -1,6 +1,7 @@
 import ElementCreator from "./util/element-creator";
 import Footer from "./view/footer/footer";
 import Header from "./view/header/header";
+import Home from "./view/main/home/home";
 import Main from "./view/main/main";
 
 export interface ViewType {
@@ -14,9 +15,11 @@ export default class App {
   }
 
   createView() {
-    const footerView: ViewType = new Footer();
-    const headerView: ViewType = new Header();
-    const mainView: ViewType = new Main();
+    const footerView: Footer = new Footer();
+    const headerView: Header = new Header(new Main());
+    const mainView: Main = new Main();
+
+    mainView.setContent(new Home());
 
     document.body.append(headerView.getHTMLElement() as Node);
     document.body.append(mainView.getHTMLElement() as Node);
