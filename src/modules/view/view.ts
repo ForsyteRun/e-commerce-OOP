@@ -17,6 +17,7 @@ export const enum CSSClassesEnum {
   link = "nav-link",
   linkSelected = "link__selected",
   HOME = "home",
+  CONTAINER = "container",
 }
 
 export const enum TextEnum {

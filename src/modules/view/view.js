@@ -6,6 +6,7 @@ export var TagEnum;
     TagEnum["main"] = "main";
     TagEnum["footer"] = "footer";
     TagEnum["link"] = "a";
+    TagEnum["section"] = "section";
 })(TagEnum || (TagEnum = {}));
 export var CSSClassesEnum;
 (function (CSSClassesEnum) {
@@ -15,6 +16,7 @@ export var CSSClassesEnum;
     CSSClassesEnum["footer"] = "footer";
     CSSClassesEnum["link"] = "nav-link";
     CSSClassesEnum["linkSelected"] = "link__selected";
+    CSSClassesEnum["HOME"] = "home";
 })(CSSClassesEnum || (CSSClassesEnum = {}));
 export var TextEnum;
 (function (TextEnum) {
