@@ -18,6 +18,8 @@ module.exports = {
     './src/modules/view/view.js',
     './src/modules/view/header/header.js', 
     './src/modules/view/header/link/link-view.js', 
+    './src/modules/view/main/home/home.js', 
+    './src/modules/view/main/cards/cards.js', 
     './src/modules/view/main/main.js', 
     './src/modules/view/footer/footer.js', 
   ],
