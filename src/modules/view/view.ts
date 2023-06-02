@@ -6,6 +6,7 @@ export const enum TagEnum {
   main = "main",
   footer = "footer",
   link = "a",
+  section = "section",
 }
 
 export const enum CSSClassesEnum {
@@ -15,6 +16,7 @@ export const enum CSSClassesEnum {
   footer = "footer",
   link = "nav-link",
   linkSelected = "link__selected",
+  HOME = "home",
 }
 
 export const enum TextEnum {
