@@ -5,13 +5,6 @@ export interface ElementParams {
   callback: (event: Event) => HTMLElement | null;
 }
 
-export interface ElementCreatorType {
-  element: HTMLElement | null;
-  createElement(param: ElementParams): void;
-  getElement: () => HTMLElement | null;
-  addInnerElement: (elem: HTMLElement | ElementCreatorType) => void
-}
-
 export default class ElementCreator {
   element: HTMLElement | null;
 
@@ -31,7 +24,7 @@ export default class ElementCreator {
     return this.element;
   }
 
-  addInnerElement(elem: HTMLElement | ElementCreatorType) {
+  addInnerElement(elem: HTMLElement | ElementCreator) {
     if (elem instanceof ElementCreator) {
       this.element?.append(elem.getElement() as Node);
     } else {

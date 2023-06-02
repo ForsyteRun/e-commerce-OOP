@@ -20,7 +20,7 @@ var Main = (function (_super) {
         var data = {
             tag: "main",
             className: "main",
-            textContent: "Good morning Main!",
+            textContent: " ",
             callback: function () { return null; },
         };
         return _super.call(this, data) || this;

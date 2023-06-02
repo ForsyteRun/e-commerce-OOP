@@ -15,6 +15,7 @@ var __extends = (this && this.__extends) || (function () {
 })();
 import ElementCreator from "../../util/element-creator";
 import View from "../view";
+import LinkView from "./link/link-view";
 var Header = (function (_super) {
     __extends(Header, _super);
     function Header() {
@@ -22,22 +23,48 @@ var Header = (function (_super) {
         var data = {
             tag: "header",
             className: "header",
-            textContent: "Good morning Header!",
+            textContent: "",
             callback: function () { return null; },
         };
         _this = _super.call(this, data) || this;
+        _this.linkElements = [];
+        _this.linkElements = [];
+        _this.start_page_number = 0;
         _this.configureView();
         return _this;
     }
     Header.prototype.configureView = function () {
+        var _this = this;
         var data = {
             tag: "nav",
             className: "nav",
             textContent: "",
             callback: function () { return null; },
         };
-        var elementCreator = new ElementCreator(data);
-        this.elementCreator.addInnerElement(elementCreator);
+        var elementNav = new ElementCreator(data);
+        this.elementCreator.addInnerElement(elementNav);
+        var pages = [
+            {
+                name: "\u0433\u043B\u0430\u0432\u043D\u0430\u044F",
+                callback: function () {
+                    console.log(111);
+                },
+            },
+            {
+                name: "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B",
+                callback: function () {
+                    console.log(111);
+                },
+            },
+        ];
+        pages.forEach(function (page, index) {
+            var createLink = new LinkView(page.name, _this.linkElements);
+            elementNav.addInnerElement(createLink.getHTMLElement());
+            _this.linkElements.push(createLink);
+            if (index === _this.start_page_number) {
+                createLink.setSelectedStatus();
+            }
+        });
     };
     return Header;
 }(View));

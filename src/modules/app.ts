@@ -1,11 +1,10 @@
-import { ElementCreatorType } from "./util/element-creator";
+import ElementCreator from "./util/element-creator";
 import Footer from "./view/footer/footer";
 import Header from "./view/header/header";
 import Main from "./view/main/main";
-import View, { CSSClassesEnum, TagEnum, TextEnum } from "./view/view";
 
 export interface ViewType {
-  elementCreator: ElementCreatorType;
+  elementCreator: ElementCreator;
   getHTMLElement(): HTMLElement | null;
 }
 

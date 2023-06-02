@@ -20,7 +20,7 @@ var Footer = (function (_super) {
         var data = {
             tag: "footer",
             className: "footer",
-            textContent: "Good morning Foo999ter!",
+            textContent: " ",
             callback: function () { return null; },
         };
         return _super.call(this, data) || this;
