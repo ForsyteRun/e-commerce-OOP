@@ -21,12 +21,13 @@ var InputFieldCreator = (function (_super) {
     }
     InputFieldCreator.prototype.createElement = function (param) {
         this.element = document.createElement("div");
-        this.setCSSClasses("container");
-        this.setCSSClasses(param.className);
+        this.element.classList.add("container");
+        this.element.classList.add(param.className);
         this.setCallback(param.callback);
         this.inputElement = document.createElement("input");
         this.labelElement = document.createElement("label");
         this.setTextContent(param.textContent);
+        this.element.append(this.labelElement, this.inputElement);
     };
     InputFieldCreator.prototype.setTextContent = function (textContent) {
         this.labelElement.textContent = textContent;

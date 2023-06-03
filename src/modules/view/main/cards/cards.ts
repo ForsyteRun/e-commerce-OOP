@@ -1,5 +1,7 @@
+import { CardInfoType, cardsInfo } from "../../../../data/data";
 import { ElementParams } from "../../../util/element-creator";
 import View, { CSSClassesEnum, TagEnum } from "../../view";
+import Card from "./card/card";
 
 export default class Cards extends View {
   constructor() {
@@ -15,5 +17,11 @@ export default class Cards extends View {
     this.configureView();
   }
 
-  configureView() {}
+  configureView() {
+    cardsInfo.forEach((card: CardInfoType) => {
+      const cardView = new Card(card);
+
+      this.elementCreator.addInnerElement(cardView.getHTMLElement() as HTMLElement);
+    });
+  }
 }

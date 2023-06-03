@@ -33,6 +33,7 @@ var Home = (function (_super) {
         _this = _super.call(this, data) || this;
         _this.firstfield = "";
         _this.secondfield = "";
+        _this.configureView();
         return _this;
     }
     Home.prototype.configureView = function () {

@@ -14,6 +14,7 @@ var __extends = (this && this.__extends) || (function () {
     };
 })();
 import ElementCreator from "../../util/element-creator";
+import Cards from "../main/cards/cards";
 import Home from "../main/home/home";
 import View from "../view";
 import LinkView from "./link/link-view";
@@ -44,7 +45,20 @@ var Header = (function (_super) {
         };
         var elementNav = new ElementCreator(data);
         this.elementCreator.addInnerElement(elementNav);
+        var pages = this.getPages(mainComponent);
+        pages.forEach(function (page, index) {
+            var createLink = new LinkView(page, _this.linkElements);
+            elementNav.addInnerElement(createLink.getHTMLElement());
+            _this.linkElements.push(createLink);
+            if (index === _this.start_page_number) {
+                page.callback();
+                createLink.setSelectedStatus();
+            }
+        });
+    };
+    Header.prototype.getPages = function (mainComponent) {
         var homeView = new Home();
+        var cardsView = new Cards();
         var pages = [
             {
                 name: "\u0433\u043B\u0430\u0432\u043D\u0430\u044F",
@@ -52,19 +66,10 @@ var Header = (function (_super) {
             },
             {
                 name: "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B",
-                callback: function () {
-                    console.log(111);
-                },
+                callback: function () { return mainComponent.setContent(cardsView); },
             },
         ];
-        pages.forEach(function (page, index) {
-            var createLink = new LinkView(page.name, _this.linkElements);
-            elementNav.addInnerElement(createLink.getHTMLElement());
-            _this.linkElements.push(createLink);
-            if (index === _this.start_page_number) {
-                createLink.setSelectedStatus();
-            }
-        });
+        return pages;
     };
     return Header;
 }(View));

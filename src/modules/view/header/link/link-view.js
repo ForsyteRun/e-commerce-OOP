@@ -16,13 +16,13 @@ var __extends = (this && this.__extends) || (function () {
 import View from "../../view";
 var LinkView = (function (_super) {
     __extends(LinkView, _super);
-    function LinkView(text, linkElements) {
+    function LinkView(PagesType, linkElements) {
         var _this = this;
         var data = {
             tag: "a",
             className: "nav-link",
-            textContent: text,
-            callback: function () { return null; },
+            textContent: PagesType.name,
+            callback: PagesType.callback,
         };
         _this = _super.call(this, data) || this;
         _this.linkElements = linkElements;

@@ -7,15 +7,17 @@ export default class InputFieldCreator extends ElementCreator {
 
   createElement(param: ElementParams): void {
     this.element = document.createElement("div");
-    this.setCSSClasses(CSSClassesEnum.CONTAINER);
-    this.setCSSClasses(param.className);
+    this.element.classList.add(CSSClassesEnum.CONTAINER);
+    this.element.classList.add(param.className);
+
     this.setCallback(param.callback);
 
     this.inputElement = document.createElement("input");
-
     this.labelElement = document.createElement("label");
 
     this.setTextContent(param.textContent);
+
+    this.element.append(this.labelElement, this.inputElement);
   }
 
   setTextContent(textContent: string): void {

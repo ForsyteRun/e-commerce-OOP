@@ -1,8 +1,14 @@
 import ElementCreator, { ElementParams } from "../../util/element-creator";
+import Cards from "../main/cards/cards";
 import Home from "../main/home/home";
 import Main from "../main/main";
 import View, { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from "../view";
 import LinkView from "./link/link-view";
+
+export interface PagesType {
+  name: string;
+  callback: () => void;
+}
 
 export default class Header extends View {
   start_page_number: number;
@@ -33,12 +39,24 @@ export default class Header extends View {
 
     this.elementCreator.addInnerElement(elementNav);
 
-    interface PagesType {
-      name: string;
-      callback: () => void;
-    }
+    const pages = this.getPages(mainComponent);
 
+    pages.forEach((page: PagesType, index: number) => {
+      const createLink: LinkView = new LinkView(page, this.linkElements);
+      elementNav.addInnerElement(createLink.getHTMLElement() as HTMLElement);
+
+      this.linkElements.push(createLink);
+
+      if (index === this.start_page_number) {
+        page.callback();
+        createLink.setSelectedStatus();
+      }
+    });
+  }
+
+  getPages(mainComponent: Main): PagesType[] {
     const homeView = new Home();
+    const cardsView = new Cards();
 
     const pages: PagesType[] = [
       {
@@ -47,21 +65,10 @@ export default class Header extends View {
       },
       {
         name: LinkNameEnum.products,
-        callback: () => {
-          console.log(111);
-        },
+        callback: () => mainComponent.setContent(cardsView),
       },
     ];
 
-    pages.forEach((page: PagesType, index: number) => {
-      const createLink: LinkView = new LinkView(page.name, this.linkElements);
-      elementNav.addInnerElement(createLink.getHTMLElement() as HTMLElement);
-
-      this.linkElements.push(createLink);
-
-      if (index === this.start_page_number) {
-        createLink.setSelectedStatus();
-      }
-    });
+    return pages;
   }
 }

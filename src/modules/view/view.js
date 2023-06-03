@@ -8,6 +8,8 @@ export var TagEnum;
     TagEnum["link"] = "a";
     TagEnum["section"] = "section";
     TagEnum["input"] = "input";
+    TagEnum["div"] = "div";
+    TagEnum["button"] = "button";
 })(TagEnum || (TagEnum = {}));
 export var CSSClassesEnum;
 (function (CSSClassesEnum) {
@@ -18,14 +20,19 @@ export var CSSClassesEnum;
     CSSClassesEnum["link"] = "nav-link";
     CSSClassesEnum["linkSelected"] = "link__selected";
     CSSClassesEnum["HOME"] = "home";
+    CSSClassesEnum["cards"] = "cards";
     CSSClassesEnum["CONTAINER"] = "container";
     CSSClassesEnum["input"] = "input";
+    CSSClassesEnum["CARD"] = "card";
+    CSSClassesEnum["FIELD"] = "card__field";
+    CSSClassesEnum["BUTTON"] = "card__button";
 })(CSSClassesEnum || (CSSClassesEnum = {}));
 export var TextEnum;
 (function (TextEnum) {
     TextEnum["headerText"] = "";
     TextEnum["mainText"] = " ";
     TextEnum["footerText"] = " ";
+    TextEnum["BTN_TEXT"] = "\u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435..";
 })(TextEnum || (TextEnum = {}));
 export var LinkNameEnum;
 (function (LinkNameEnum) {
