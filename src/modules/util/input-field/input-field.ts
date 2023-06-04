@@ -1,4 +1,4 @@
-import { CSSClassesEnum } from '../../view/view';
+import { CSSClassesEnum } from '../../../types';
 import ElementCreator, { ElementParams } from '../element-creator';
 
 export default class InputFieldCreator extends ElementCreator {
@@ -21,7 +21,7 @@ export default class InputFieldCreator extends ElementCreator {
     this.element.append(this.labelElement, this.inputElement);
   }
 
-  setTextContent(textContent: string) {
+  setTextContent(textContent: string): void {
     this.labelElement.textContent = textContent;
   }
 

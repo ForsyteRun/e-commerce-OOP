@@ -13,12 +13,12 @@ class Home extends view_1.default {
         const data = {
             tag: "section",
             className: "home",
-            textContent: "",
+            textContent: '',
             callback: () => null,
         };
         super(data);
-        this.firstfield = "";
-        this.secondfield = "";
+        this.firstfield = '';
+        this.secondfield = '';
         this.configureView();
     }
     configureView() {

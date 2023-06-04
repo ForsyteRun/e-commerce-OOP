@@ -23,7 +23,7 @@ class Header extends view_1.default {
         const data = {
             tag: "nav",
             className: "nav",
-            textContent: "",
+            textContent: '',
             callback: () => null,
         };
         const elementNav = new element_creator_1.default(data);

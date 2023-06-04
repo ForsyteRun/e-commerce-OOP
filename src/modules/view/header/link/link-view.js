@@ -2,12 +2,12 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 const view_1 = require("../../view");
 class LinkView extends view_1.default {
-    constructor(PagesType, linkElements) {
+    constructor(Pages, linkElements) {
         const data = {
             tag: "a",
             className: "nav-link",
-            textContent: PagesType.name,
-            callback: PagesType.callback,
+            textContent: Pages.name,
+            callback: Pages.callback,
         };
         super(data);
         this.linkElements = linkElements;
@@ -24,7 +24,7 @@ class LinkView extends view_1.default {
     }
     configureView() {
         const element = this.elementCreator.getElement();
-        element === null || element === void 0 ? void 0 : element.addEventListener("click", this.setSelectedStatus.bind(this));
+        element === null || element === void 0 ? void 0 : element.addEventListener('click', this.setSelectedStatus.bind(this));
     }
 }
 exports.default = LinkView;

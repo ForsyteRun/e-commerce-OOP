@@ -1,17 +1,18 @@
+import { CSSClassesEnum, TagEnum } from '../../../../types';
 import { ElementParams } from '../../../util/element-creator';
-import View, { CSSClassesEnum, TagEnum } from '../../view';
+import View from '../../view';
 import { PagesType } from '../header';
 
 export default class LinkView extends View {
   linkElements: Array<LinkView>;
 
-  constructor(PagesType: PagesType, linkElements: Array<LinkView>) {
+  constructor(Pages: PagesType, linkElements: Array<LinkView>) {
     const data: ElementParams = {
       tag: TagEnum.link,
       className: CSSClassesEnum.link,
-      textContent: PagesType.name,
+      textContent: Pages.name,
       // @ts-ignore
-      callback: PagesType.callback,
+      callback: Pages.callback,
     };
     super(data);
 

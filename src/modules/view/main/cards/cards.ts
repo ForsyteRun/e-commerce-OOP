@@ -1,6 +1,7 @@
 import { CardInfoType, cardsInfo } from '../../../../data/data';
+import { CSSClassesEnum, TagEnum } from '../../../../types';
 import { ElementParams } from '../../../util/element-creator';
-import View, { CSSClassesEnum, TagEnum } from '../../view';
+import View from '../../view';
 import Card from './card/card';
 
 export default class Cards extends View {
@@ -25,9 +26,3 @@ export default class Cards extends View {
     });
   }
 }
-
-const fb = (a: number, b: number) => {
-  return a + b;
-};
-
-fb(2, 4);

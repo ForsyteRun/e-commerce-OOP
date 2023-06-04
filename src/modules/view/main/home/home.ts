@@ -1,6 +1,7 @@
+import { CSSClassesEnum, TagEnum } from '../../../../types';
 import { ElementParams } from '../../../util/element-creator';
 import InputFieldCreator from '../../../util/input-field/input-field';
-import View, { CSSClassesEnum, TagEnum } from '../../view';
+import View from '../../view';
 
 export const enum FieldText {
   FIELD_TEXT_ONE = 'поле для ввoдa1',

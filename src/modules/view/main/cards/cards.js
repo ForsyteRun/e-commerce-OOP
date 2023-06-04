@@ -8,7 +8,7 @@ class Cards extends view_1.default {
         const data = {
             tag: "section",
             className: "cards",
-            textContent: "",
+            textContent: '',
             callback: () => null,
         };
         super(data);

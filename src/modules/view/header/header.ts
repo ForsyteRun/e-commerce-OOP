@@ -1,8 +1,9 @@
+import { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from '../../../types';
 import ElementCreator, { ElementParams } from '../../util/element-creator';
 import Cards from '../main/cards/cards';
 import Home from '../main/home/home';
 import Main from '../main/main';
-import View, { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from '../view';
+import View from '../view';
 import LinkView from './link/link-view';
 
 export interface PagesType {

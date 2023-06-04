@@ -6,8 +6,8 @@
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": false,
-    "strict": true,
-    "checkJs": false
+    "strict": true
+    // "checkJs": false
   },
   "exclude": ["./src/modules/view/footer/types/*", "./src/modules/view/header/types/*"]
 }

@@ -34,7 +34,7 @@ class ElementCreator {
     }
     setCallback(callback) {
         var _a;
-        (_a = this.element) === null || _a === void 0 ? void 0 : _a.addEventListener("click", (event) => callback(event));
+        (_a = this.element) === null || _a === void 0 ? void 0 : _a.addEventListener('click', (event) => callback(event));
     }
 }
 exports.default = ElementCreator;
