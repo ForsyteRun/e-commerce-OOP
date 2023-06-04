@@ -1,19 +1,13 @@
 {
   "compilerOptions": {
-    "module": "ES6",
+    "target": "ES2016",
+    "module": "CommonJS",
     "noImplicitAny": true,
     "removeComments": true,
     "preserveConstEnums": true,
     "sourceMap": false,
-    "strict": true
+    "strict": true,
+    "checkJs": false
   },
-  // "files": [
-  //   "src/index.ts",
-  //   "src/modules/app.ts",
-  //   "src/modules/view/header/header.ts",
-  //   "src/modules/view/main/main.ts",
-  //   "src/modules/view/footer/footer.ts"
-  // ]
-  // "include": ["./src/**/*"],
   "exclude": ["./src/modules/view/footer/types/*", "./src/modules/view/header/types/*"]
 }

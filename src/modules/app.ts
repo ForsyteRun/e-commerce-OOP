@@ -1,8 +1,8 @@
-import ElementCreator from "./util/element-creator";
-import Footer from "./view/footer/footer";
-import Header from "./view/header/header";
-import Home from "./view/main/home/home";
-import Main from "./view/main/main";
+import ElementCreator from './util/element-creator';
+import Footer from './view/footer/footer';
+import Header from './view/header/header';
+import Home from './view/main/home/home';
+import Main from './view/main/main';
 
 export interface ViewType {
   elementCreator: ElementCreator;

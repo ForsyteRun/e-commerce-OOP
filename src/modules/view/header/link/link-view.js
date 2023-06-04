@@ -1,47 +1,30 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import View from "../../view";
-var LinkView = (function (_super) {
-    __extends(LinkView, _super);
-    function LinkView(PagesType, linkElements) {
-        var _this = this;
-        var data = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const view_1 = require("../../view");
+class LinkView extends view_1.default {
+    constructor(PagesType, linkElements) {
+        const data = {
             tag: "a",
             className: "nav-link",
             textContent: PagesType.name,
             callback: PagesType.callback,
         };
-        _this = _super.call(this, data) || this;
-        _this.linkElements = linkElements;
-        _this.configureView();
-        return _this;
+        super(data);
+        this.linkElements = linkElements;
+        this.configureView();
     }
-    LinkView.prototype.setSelectedStatus = function () {
-        this.linkElements.forEach(function (link) { return link.setNotSelectedStatus(); });
-        var element = this.elementCreator.getElement();
+    setSelectedStatus() {
+        this.linkElements.forEach((link) => link.setNotSelectedStatus());
+        const element = this.elementCreator.getElement();
         element === null || element === void 0 ? void 0 : element.classList.add("link__selected");
-    };
-    LinkView.prototype.setNotSelectedStatus = function () {
-        var element = this.elementCreator.getElement();
+    }
+    setNotSelectedStatus() {
+        const element = this.elementCreator.getElement();
         element === null || element === void 0 ? void 0 : element.classList.remove("link__selected");
-    };
-    LinkView.prototype.configureView = function () {
-        var element = this.elementCreator.getElement();
+    }
+    configureView() {
+        const element = this.elementCreator.getElement();
         element === null || element === void 0 ? void 0 : element.addEventListener("click", this.setSelectedStatus.bind(this));
-    };
-    return LinkView;
-}(View));
-export default LinkView;
+    }
+}
+exports.default = LinkView;

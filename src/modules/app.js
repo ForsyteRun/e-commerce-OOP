@@ -1,20 +1,21 @@
-import Footer from "./view/footer/footer";
-import Header from "./view/header/header";
-import Home from "./view/main/home/home";
-import Main from "./view/main/main";
-var App = (function () {
-    function App() {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const footer_1 = require("./view/footer/footer");
+const header_1 = require("./view/header/header");
+const home_1 = require("./view/main/home/home");
+const main_1 = require("./view/main/main");
+class App {
+    constructor() {
         this.createView();
     }
-    App.prototype.createView = function () {
-        var footerView = new Footer();
-        var headerView = new Header(new Main());
-        var mainView = new Main();
-        mainView.setContent(new Home());
+    createView() {
+        const footerView = new footer_1.default();
+        const headerView = new header_1.default(new main_1.default());
+        const mainView = new main_1.default();
+        mainView.setContent(new home_1.default());
         document.body.append(headerView.getHTMLElement());
         document.body.append(mainView.getHTMLElement());
         document.body.append(footerView.getHTMLElement());
-    };
-    return App;
-}());
-export default App;
+    }
+}
+exports.default = App;

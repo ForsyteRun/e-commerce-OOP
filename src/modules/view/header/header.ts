@@ -1,9 +1,9 @@
-import ElementCreator, { ElementParams } from "../../util/element-creator";
-import Cards from "../main/cards/cards";
-import Home from "../main/home/home";
-import Main from "../main/main";
-import View, { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from "../view";
-import LinkView from "./link/link-view";
+import ElementCreator, { ElementParams } from '../../util/element-creator';
+import Cards from '../main/cards/cards';
+import Home from '../main/home/home';
+import Main from '../main/main';
+import View, { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from '../view';
+import LinkView from './link/link-view';
 
 export interface PagesType {
   name: string;
@@ -12,6 +12,7 @@ export interface PagesType {
 
 export default class Header extends View {
   start_page_number: number;
+
   linkElements: Array<LinkView> = [];
 
   constructor(mainComponent: Main) {
@@ -27,11 +28,11 @@ export default class Header extends View {
     this.configureView(mainComponent);
   }
 
-  configureView(mainComponent: Main) {
+  configureView(mainComponent: Main): void {
     const data: ElementParams = {
       tag: TagEnum.nav,
       className: CSSClassesEnum.nav,
-      textContent: "",
+      textContent: '',
       callback: () => null,
     };
 

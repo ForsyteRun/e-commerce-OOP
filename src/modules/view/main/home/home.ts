@@ -1,28 +1,29 @@
-import { ElementParams } from "../../../util/element-creator";
-import InputFieldCreator from "../../../util/input-field/input-field";
-import View, { CSSClassesEnum, TagEnum } from "../../view";
+import { ElementParams } from '../../../util/element-creator';
+import InputFieldCreator from '../../../util/input-field/input-field';
+import View, { CSSClassesEnum, TagEnum } from '../../view';
 
 export const enum FieldText {
-  FIELD_TEXT_ONE = "поле для ввoдa1",
-  FIELD_TEXT_TWO = "поле для ввoдa2",
+  FIELD_TEXT_ONE = 'поле для ввoдa1',
+  FIELD_TEXT_TWO = 'поле для ввoдa2',
 }
 
 export default class Home extends View {
   firstfield: string;
+
   secondfield: string;
 
   constructor() {
     const data: ElementParams = {
       tag: TagEnum.section,
       className: CSSClassesEnum.HOME,
-      textContent: "",
+      textContent: '',
       callback: () => null,
     };
 
     super(data);
 
-    this.firstfield = "";
-    this.secondfield = "";
+    this.firstfield = '';
+    this.secondfield = '';
 
     this.configureView();
   }
@@ -51,7 +52,7 @@ export default class Home extends View {
 
   keyupHandler(event: Event, fieldName: string): any {
     if (event.target instanceof HTMLInputElement) {
-      //@ts-ignore
+      // @ts-ignore
       this[fieldName] = event.target.value;
     }
   }

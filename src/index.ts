@@ -1,4 +1,4 @@
-import App from "./modules/app";
-import "./sass/main.scss";
+import App from './modules/app';
+import './sass/main.scss';
 
 new App();

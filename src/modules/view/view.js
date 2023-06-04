@@ -1,5 +1,8 @@
-import ElementCreator from "../util/element-creator";
-export var TagEnum;
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.LinkNameEnum = exports.TextEnum = exports.CSSClassesEnum = exports.TagEnum = void 0;
+const element_creator_1 = require("../util/element-creator");
+var TagEnum;
 (function (TagEnum) {
     TagEnum["header"] = "header";
     TagEnum["nav"] = "nav";
@@ -10,8 +13,8 @@ export var TagEnum;
     TagEnum["input"] = "input";
     TagEnum["div"] = "div";
     TagEnum["button"] = "button";
-})(TagEnum || (TagEnum = {}));
-export var CSSClassesEnum;
+})(TagEnum = exports.TagEnum || (exports.TagEnum = {}));
+var CSSClassesEnum;
 (function (CSSClassesEnum) {
     CSSClassesEnum["header"] = "header";
     CSSClassesEnum["nav"] = "nav";
@@ -26,37 +29,35 @@ export var CSSClassesEnum;
     CSSClassesEnum["CARD"] = "card";
     CSSClassesEnum["FIELD"] = "card__field";
     CSSClassesEnum["BUTTON"] = "card__button";
-})(CSSClassesEnum || (CSSClassesEnum = {}));
-export var TextEnum;
+})(CSSClassesEnum = exports.CSSClassesEnum || (exports.CSSClassesEnum = {}));
+var TextEnum;
 (function (TextEnum) {
     TextEnum["headerText"] = "";
     TextEnum["mainText"] = " ";
     TextEnum["footerText"] = " ";
     TextEnum["BTN_TEXT"] = "\u043F\u043E\u0434\u0440\u043E\u0431\u043D\u0435\u0435..";
-})(TextEnum || (TextEnum = {}));
-export var LinkNameEnum;
+})(TextEnum = exports.TextEnum || (exports.TextEnum = {}));
+var LinkNameEnum;
 (function (LinkNameEnum) {
     LinkNameEnum["main"] = "\u0433\u043B\u0430\u0432\u043D\u0430\u044F";
     LinkNameEnum["products"] = "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B";
-})(LinkNameEnum || (LinkNameEnum = {}));
-var View = (function () {
-    function View(nodeParams) {
+})(LinkNameEnum = exports.LinkNameEnum || (exports.LinkNameEnum = {}));
+class View {
+    constructor(nodeParams) {
         this.elementCreator = this.createView(nodeParams);
     }
-    View.prototype.getHTMLElement = function () {
+    getHTMLElement() {
         return this.elementCreator.getElement();
-    };
-    View.prototype.createView = function (_a) {
-        var tag = _a.tag, className = _a.className, textContent = _a.textContent, _b = _a.callback, callback = _b === void 0 ? function () { return null; } : _b;
-        var data = {
+    }
+    createView({ tag, className, textContent, callback = () => null }) {
+        const data = {
             tag: tag,
             className: className,
             textContent: textContent,
             callback: callback,
         };
-        var elementCreator = new ElementCreator(data);
+        const elementCreator = new element_creator_1.default(data);
         return elementCreator;
-    };
-    return View;
-}());
-export default View;
+    }
+}
+exports.default = View;

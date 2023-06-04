@@ -1,38 +1,23 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import View from "../view";
-var Main = (function (_super) {
-    __extends(Main, _super);
-    function Main() {
-        var data = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const view_1 = require("../view");
+class Main extends view_1.default {
+    constructor() {
+        const data = {
             tag: "main",
             className: "main",
             textContent: " ",
-            callback: function () { return null; },
+            callback: () => null,
         };
-        return _super.call(this, data) || this;
+        super(data);
     }
-    Main.prototype.setContent = function (view) {
-        var element = view.getHTMLElement();
-        var currentElement = this.elementCreator.getElement();
+    setContent(view) {
+        const element = view.getHTMLElement();
+        const currentElement = this.elementCreator.getElement();
         while (currentElement === null || currentElement === void 0 ? void 0 : currentElement.firstElementChild) {
             currentElement === null || currentElement === void 0 ? void 0 : currentElement.firstElementChild.remove();
         }
         this.elementCreator.addInnerElement(element);
-    };
-    return Main;
-}(View));
-export default Main;
+    }
+}
+exports.default = Main;

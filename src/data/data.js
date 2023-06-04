@@ -1,4 +1,7 @@
-export var cardsInfo = [
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.cardsInfo = void 0;
+exports.cardsInfo = [
     {
         id: "1",
         name: "Первая карточка",

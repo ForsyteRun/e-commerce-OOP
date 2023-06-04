@@ -43,6 +43,6 @@ export default class ElementCreator {
   }
 
   setCallback(callback: (event: Event) => HTMLElement | null): void {
-    this.element?.addEventListener("click", (event: Event) => callback(event));
+    this.element?.addEventListener('click', (event: Event) => callback(event));
   }
 }

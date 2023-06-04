@@ -1,6 +1,6 @@
-import { ElementParams } from "../../../util/element-creator";
-import View, { CSSClassesEnum, TagEnum } from "../../view";
-import { PagesType } from "../header";
+import { ElementParams } from '../../../util/element-creator';
+import View, { CSSClassesEnum, TagEnum } from '../../view';
+import { PagesType } from '../header';
 
 export default class LinkView extends View {
   linkElements: Array<LinkView>;
@@ -10,7 +10,7 @@ export default class LinkView extends View {
       tag: TagEnum.link,
       className: CSSClassesEnum.link,
       textContent: PagesType.name,
-      //@ts-ignore
+      // @ts-ignore
       callback: PagesType.callback,
     };
     super(data);
@@ -33,6 +33,6 @@ export default class LinkView extends View {
 
   configureView() {
     const element: HTMLElement | null = this.elementCreator.getElement();
-    element?.addEventListener("click", this.setSelectedStatus.bind(this));
+    element?.addEventListener('click', this.setSelectedStatus.bind(this));
   }
 }

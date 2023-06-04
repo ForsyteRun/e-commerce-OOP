@@ -1,5 +1,5 @@
-import { ElementParams } from "../../util/element-creator";
-import View, { CSSClassesEnum, TagEnum, TextEnum } from "../view";
+import { ElementParams } from '../../util/element-creator';
+import View, { CSSClassesEnum, TagEnum, TextEnum } from '../view';
 
 export default class Main extends View {
   constructor() {

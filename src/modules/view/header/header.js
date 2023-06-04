@@ -1,76 +1,58 @@
-var __extends = (this && this.__extends) || (function () {
-    var extendStatics = function (d, b) {
-        extendStatics = Object.setPrototypeOf ||
-            ({ __proto__: [] } instanceof Array && function (d, b) { d.__proto__ = b; }) ||
-            function (d, b) { for (var p in b) if (Object.prototype.hasOwnProperty.call(b, p)) d[p] = b[p]; };
-        return extendStatics(d, b);
-    };
-    return function (d, b) {
-        if (typeof b !== "function" && b !== null)
-            throw new TypeError("Class extends value " + String(b) + " is not a constructor or null");
-        extendStatics(d, b);
-        function __() { this.constructor = d; }
-        d.prototype = b === null ? Object.create(b) : (__.prototype = b.prototype, new __());
-    };
-})();
-import ElementCreator from "../../util/element-creator";
-import Cards from "../main/cards/cards";
-import Home from "../main/home/home";
-import View from "../view";
-import LinkView from "./link/link-view";
-var Header = (function (_super) {
-    __extends(Header, _super);
-    function Header(mainComponent) {
-        var _this = this;
-        var data = {
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+const element_creator_1 = require("../../util/element-creator");
+const cards_1 = require("../main/cards/cards");
+const home_1 = require("../main/home/home");
+const view_1 = require("../view");
+const link_view_1 = require("./link/link-view");
+class Header extends view_1.default {
+    constructor(mainComponent) {
+        const data = {
             tag: "header",
             className: "header",
             textContent: "",
-            callback: function () { return null; },
+            callback: () => null,
         };
-        _this = _super.call(this, data) || this;
-        _this.linkElements = [];
-        _this.linkElements = [];
-        _this.start_page_number = 0;
-        _this.configureView(mainComponent);
-        return _this;
+        super(data);
+        this.linkElements = [];
+        this.linkElements = [];
+        this.start_page_number = 0;
+        this.configureView(mainComponent);
     }
-    Header.prototype.configureView = function (mainComponent) {
-        var _this = this;
-        var data = {
+    configureView(mainComponent) {
+        const data = {
             tag: "nav",
             className: "nav",
             textContent: "",
-            callback: function () { return null; },
+            callback: () => null,
         };
-        var elementNav = new ElementCreator(data);
+        const elementNav = new element_creator_1.default(data);
         this.elementCreator.addInnerElement(elementNav);
-        var pages = this.getPages(mainComponent);
-        pages.forEach(function (page, index) {
-            var createLink = new LinkView(page, _this.linkElements);
+        const pages = this.getPages(mainComponent);
+        pages.forEach((page, index) => {
+            const createLink = new link_view_1.default(page, this.linkElements);
             elementNav.addInnerElement(createLink.getHTMLElement());
-            _this.linkElements.push(createLink);
-            if (index === _this.start_page_number) {
+            this.linkElements.push(createLink);
+            if (index === this.start_page_number) {
                 page.callback();
                 createLink.setSelectedStatus();
             }
         });
-    };
-    Header.prototype.getPages = function (mainComponent) {
-        var homeView = new Home();
-        var cardsView = new Cards();
-        var pages = [
+    }
+    getPages(mainComponent) {
+        const homeView = new home_1.default();
+        const cardsView = new cards_1.default();
+        const pages = [
             {
                 name: "\u0433\u043B\u0430\u0432\u043D\u0430\u044F",
-                callback: function () { return mainComponent.setContent(homeView); },
+                callback: () => mainComponent.setContent(homeView),
             },
             {
                 name: "\u043F\u0440\u043E\u0434\u0443\u043A\u0442\u044B",
-                callback: function () { return mainComponent.setContent(cardsView); },
+                callback: () => mainComponent.setContent(cardsView),
             },
         ];
         return pages;
-    };
-    return Header;
-}(View));
-export default Header;
+    }
+}
+exports.default = Header;

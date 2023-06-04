@@ -3,20 +3,25 @@
   "parser": "@typescript-eslint/parser",
   "parserOptions": {
     "ecmaVersion": "latest",
-    "sourceType": "module"
+    "sourceType": "module",
+    "project": "tsconfig.json"
   },
   "plugins": ["@typescript-eslint", "prettier"],
   "extends": [
     "airbnb-base",
-    "eslint:recommended",
-    "plugin:@typescript-eslint/eslint-recommended",
+    "airbnb-typescript/base",
     "plugin:@typescript-eslint/recommended",
-    "plugin: prettier/recommended"
+    "plugin:prettier/recommended"
   ],
   "rules": {
-    "no-console": 0,
-    "eslint no-undef": 0,
-    "import/extensions": "off",
-    "prettier/prettier": "error"
+    "no-console": 0, //not allow console
+    "eslint no-undef": 0, //???
+    "import/extensions": "off", //toggle extensions in imports
+    "prettier/prettier": "error", //prettier errors
+    "import/prefer-default-export": "off", //switch default export
+    "@typescript-eslint/no-explicit-any": "error", //not allowed any type
+    "@typescript-eslint/no-inferrable-types": "error", //do NOT need define types in primitives
+    "max-lines-per-function": ["error", 40], //max-lines-per-function
+    "@typescript-eslint/explicit-function-return-type": "error"
   }
 }
