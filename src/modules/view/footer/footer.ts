@@ -1,5 +1,4 @@
-import { CSSClassesEnum, TagEnum, TextEnum } from '../../../types';
-import { ElementParams } from '../../util/element-creator';
+import { CSSClassesEnum, ElementParams, TagEnum, TextEnum } from '../../../types';
 import View from '../view';
 
 export default class Footer extends View {

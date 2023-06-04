@@ -1,6 +1,6 @@
 import { CardInfoType } from '../../../../../data/data';
-import { CSSClassesEnum, TagEnum, TextEnum } from '../../../../../types';
-import ElementCreator, { ElementParams } from '../../../../util/element-creator';
+import { CSSClassesEnum, ElementParams, TagEnum, TextEnum } from '../../../../../types';
+import ElementCreator from '../../../../util/element-creator';
 import View from '../../../view';
 
 export default class Card extends View {

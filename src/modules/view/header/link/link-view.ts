@@ -1,5 +1,4 @@
-import { CSSClassesEnum, TagEnum } from '../../../../types';
-import { ElementParams } from '../../../util/element-creator';
+import { CSSClassesEnum, ElementParams, TagEnum } from '../../../../types';
 import View from '../../view';
 import { PagesType } from '../header';
 

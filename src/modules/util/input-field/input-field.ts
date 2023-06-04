@@ -1,10 +1,10 @@
-import { CSSClassesEnum } from '../../../types';
-import ElementCreator, { ElementParams } from '../element-creator';
+import { CSSClassesEnum, ElementParams } from '../../../types';
+import ElementCreator from '../element-creator';
 
 export default class InputFieldCreator extends ElementCreator {
-  inputElement: any;
+  inputElement: HTMLInputElement | undefined;
 
-  labelElement: any;
+  labelElement: HTMLLabelElement | undefined;
 
   createElement(param: ElementParams): void {
     this.element = document.createElement('div');
@@ -21,11 +21,13 @@ export default class InputFieldCreator extends ElementCreator {
     this.element.append(this.labelElement, this.inputElement);
   }
 
-  setTextContent(textContent: string): void {
-    this.labelElement.textContent = textContent;
+  public setTextContent(textContent: string): void {
+    if (this.labelElement) {
+      this.labelElement.textContent = textContent;
+    }
   }
 
-  setCallback(callback: (event: Event) => HTMLElement | null): void {
+  public setCallback(callback: (event: Event) => HTMLElement | null): void {
     this.element?.addEventListener('keyup', (event: Event) => callback(event));
   }
 }

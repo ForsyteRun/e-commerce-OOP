@@ -14,7 +14,7 @@ export default class App {
     this.createView();
   }
 
-  createView() {
+  createView(): void {
     const footerView: Footer = new Footer();
     const headerView: Header = new Header(new Main());
     const mainView: Main = new Main();

@@ -1,5 +1,5 @@
-import { CSSClassesEnum, LinkNameEnum, TagEnum, TextEnum } from '../../../types';
-import ElementCreator, { ElementParams } from '../../util/element-creator';
+import { CSSClassesEnum, ElementParams, LinkNameEnum, TagEnum, TextEnum } from '../../../types';
+import ElementCreator from '../../util/element-creator';
 import Cards from '../main/cards/cards';
 import Home from '../main/home/home';
 import Main from '../main/main';

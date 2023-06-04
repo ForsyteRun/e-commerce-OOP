@@ -1,4 +1,5 @@
-import ElementCreator, { ElementParams } from '../util/element-creator';
+import { ElementParams } from '../../types';
+import ElementCreator from '../util/element-creator';
 
 export default class View {
   elementCreator: ElementCreator;
@@ -11,7 +12,7 @@ export default class View {
     return this.elementCreator.getElement();
   }
 
-  createView({ tag, className, textContent, callback = () => null }: ElementParams): ElementCreator {
+  createView({ tag, className, textContent, callback = (): null => null }: ElementParams): ElementCreator {
     const data: ElementParams = {
       tag,
       className,

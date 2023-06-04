@@ -37,3 +37,10 @@ export const enum LinkNameEnum {
   main = 'главная',
   products = 'продукты',
 }
+
+export interface ElementParams<T = HTMLElement | null> {
+  tag: string;
+  className: string;
+  textContent: string;
+  callback: (event: Event) => T;
+}

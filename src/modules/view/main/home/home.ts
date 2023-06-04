@@ -1,5 +1,4 @@
-import { CSSClassesEnum, TagEnum } from '../../../../types';
-import { ElementParams } from '../../../util/element-creator';
+import { CSSClassesEnum, ElementParams, TagEnum } from '../../../../types';
 import InputFieldCreator from '../../../util/input-field/input-field';
 import View from '../../view';
 

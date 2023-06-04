@@ -1,9 +1,4 @@
-export interface ElementParams<T = HTMLElement | null> {
-  tag: string;
-  className: string;
-  textContent: string;
-  callback: (event: Event) => T;
-}
+import { ElementParams } from '../../types';
 
 export default class ElementCreator {
   element: HTMLElement | null;
@@ -13,7 +8,7 @@ export default class ElementCreator {
     this.createElement(param);
   }
 
-  createElement(param: ElementParams): void {
+  protected createElement(param: ElementParams): void {
     this.element = document.createElement(param.tag);
     this.setCSSClasses(param.className);
     this.setTextContent(param.textContent);
@@ -24,7 +19,7 @@ export default class ElementCreator {
     return this.element;
   }
 
-  addInnerElement(elem: HTMLElement | ElementCreator) {
+  addInnerElement(elem: HTMLElement | ElementCreator): void {
     if (elem instanceof ElementCreator) {
       this.element?.append(elem.getElement() as Node);
     } else {
