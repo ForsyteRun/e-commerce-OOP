@@ -30,6 +30,10 @@ module.exports = {
   ],
   module: {
     rules: [
+      {
+        test: /\.ts$/i,
+        use: 'ts-loader'
+      },
       { // load html...
         test: /\.html$/i,
         loader: 'html-loader'
@@ -97,5 +101,8 @@ module.exports = {
     hot: true,
     open: true,
     port: 9000
+  },
+  resolve: {
+    extensions: ['.ts', '.js', '.json']
   }
 }
