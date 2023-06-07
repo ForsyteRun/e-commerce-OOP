@@ -1,22 +1,19 @@
 import { ElementParams } from '../../types';
 
 export default class ElementCreator {
-  element: HTMLElement | null;
+  element: HTMLElement | null = null;
 
   constructor(param: ElementParams) {
-    this.element = null;
     this.createElement(param);
   }
 
+  // TODO:методы доступа
+  // TODO:деструктуризация
   protected createElement(param: ElementParams): void {
     this.element = document.createElement(param.tag);
     this.setCSSClasses(param.className);
     this.setTextContent(param.textContent);
     this.setCallback(param.callback);
-  }
-
-  getElement(): HTMLElement | null {
-    return this.element;
   }
 
   addInnerElement(elem: HTMLElement | ElementCreator): void {
@@ -38,6 +35,12 @@ export default class ElementCreator {
   }
 
   setCallback(callback: (event: Event) => HTMLElement | null): void {
-    this.element?.addEventListener('click', (event: Event) => callback(event));
+    if (typeof callback === 'function') {
+      this.element?.addEventListener('click', (event: Event) => callback(event));
+    }
+  }
+
+  getElement(): HTMLElement | null {
+    return this.element;
   }
 }

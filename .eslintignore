@@ -1,8 +1,8 @@
 node_modules
-dist
+bild
 webpack.config.js
 postcss.config.js
 .eslintrs.json
 .prettierrs.json
-dist/*.js
+bild/*.js
 src/*.js

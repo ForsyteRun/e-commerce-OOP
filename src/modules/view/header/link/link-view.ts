@@ -5,33 +5,32 @@ import { PagesType } from '../header';
 export default class LinkView extends View {
   linkElements: Array<LinkView>;
 
-  constructor(Pages: PagesType, linkElements: Array<LinkView>) {
-    const data: ElementParams = {
+  constructor(page: PagesType, linkElements: Array<LinkView>) {
+    const linkParams: ElementParams = {
       tag: TagEnum.link,
       className: CSSClassesEnum.link,
-      textContent: Pages.name,
-      // @ts-ignore
-      callback: Pages.callback,
+      textContent: page.name,
+      callback: () => null,
     };
-    super(data);
+    super(linkParams);
 
     this.linkElements = linkElements;
     this.configureView();
   }
 
-  setSelectedStatus() {
+  setSelectedStatus(): void {
     this.linkElements.forEach((link: LinkView) => link.setNotSelectedStatus());
 
     const element: HTMLElement | null = this.elementCreator.getElement();
     element?.classList.add(CSSClassesEnum.linkSelected);
   }
 
-  setNotSelectedStatus() {
+  setNotSelectedStatus(): void {
     const element: HTMLElement | null = this.elementCreator.getElement();
     element?.classList.remove(CSSClassesEnum.linkSelected);
   }
 
-  configureView() {
+  configureView(): void {
     const element: HTMLElement | null = this.elementCreator.getElement();
     element?.addEventListener('click', this.setSelectedStatus.bind(this));
   }

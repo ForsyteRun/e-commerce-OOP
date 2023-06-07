@@ -6,10 +6,12 @@ export default class InputFieldCreator extends ElementCreator {
 
   labelElement: HTMLLabelElement | undefined;
 
+  // TODO:destruction
+  // TODO:method dopuska
   createElement(param: ElementParams): void {
     this.element = document.createElement('div');
-    this.element.classList.add(CSSClassesEnum.CONTAINER);
-    this.element.classList.add(param.className);
+    this.setCSSClasses(CSSClassesEnum.CONTAINER);
+    this.setCSSClasses(param.className);
 
     this.setCallback(param.callback);
 
@@ -21,13 +23,14 @@ export default class InputFieldCreator extends ElementCreator {
     this.element.append(this.labelElement, this.inputElement);
   }
 
-  public setTextContent(textContent: string): void {
+  public setTextContent(text: string): void {
     if (this.labelElement) {
-      this.labelElement.textContent = textContent;
+      this.labelElement.textContent = text;
     }
   }
 
   public setCallback(callback: (event: Event) => HTMLElement | null): void {
     this.element?.addEventListener('keyup', (event: Event) => callback(event));
+    console.log(222);
   }
 }

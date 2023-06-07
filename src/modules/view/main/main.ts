@@ -13,7 +13,7 @@ export default class Main extends View {
     super(data);
   }
 
-  setContent(view: View) {
+  setContent(view: View): void {
     const element: HTMLElement | null = view.getHTMLElement();
     const currentElement: HTMLElement | null = this.elementCreator.getElement();
 

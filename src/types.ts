@@ -42,5 +42,5 @@ export interface ElementParams<T = HTMLElement | null> {
   tag: string;
   className: string;
   textContent: string;
-  callback: (event: Event) => T;
+  callback: (event: Event) => T; // TODO:должна быть не функция, а null
 }

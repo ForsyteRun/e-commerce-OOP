@@ -6,38 +6,37 @@ import Main from '../main/main';
 import View from '../view';
 import LinkView from './link/link-view';
 
+// TODO:to types
 export interface PagesType {
   name: string;
-  callback: () => void;
+  callback: () => void; // TODO: null
 }
 
 export default class Header extends View {
-  start_page_number: number;
+  START_PAGE_INDEX = 0;
 
   linkElements: Array<LinkView> = [];
 
   constructor(mainComponent: Main) {
-    const data: ElementParams = {
+    const headerParams: ElementParams = {
       tag: TagEnum.header,
       className: CSSClassesEnum.header,
       textContent: TextEnum.headerText,
       callback: () => null,
     };
-    super(data);
-    this.linkElements = [];
-    this.start_page_number = 0;
+    super(headerParams);
     this.configureView(mainComponent);
   }
 
   configureView(mainComponent: Main): void {
-    const data: ElementParams = {
+    const navParams: ElementParams = {
       tag: TagEnum.nav,
       className: CSSClassesEnum.nav,
       textContent: '',
-      callback: () => null,
+      callback: () => null, // TODO:null
     };
 
-    const elementNav: ElementCreator = new ElementCreator(data);
+    const elementNav: ElementCreator = new ElementCreator(navParams);
 
     this.elementCreator.addInnerElement(elementNav);
 
@@ -49,8 +48,8 @@ export default class Header extends View {
 
       this.linkElements.push(createLink);
 
-      if (index === this.start_page_number) {
-        page.callback();
+      if (index === this.START_PAGE_INDEX) {
+        // page.callback(); // todo:NEED?
         createLink.setSelectedStatus();
       }
     });

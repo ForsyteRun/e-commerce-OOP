@@ -12,7 +12,7 @@ module.exports = {
   mode,
   target,
   devtool,
-  entry: "./src/index.js",
+  entry: "./src/index.ts",
   output: { // output point
     path: path.join(__dirname, 'dist'),
     clean: true,

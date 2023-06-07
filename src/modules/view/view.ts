@@ -1,18 +1,19 @@
 import { ElementParams } from '../../types';
 import ElementCreator from '../util/element-creator';
 
-export default class View {
-  elementCreator: ElementCreator;
+export default abstract class View {
+  protected elementCreator: ElementCreator;
 
-  constructor(nodeParams: ElementParams) {
-    this.elementCreator = this.createView(nodeParams);
+  constructor(params: ElementParams) {
+    this.elementCreator = this.createView(params);
   }
 
   getHTMLElement(): HTMLElement | null {
     return this.elementCreator.getElement();
   }
 
-  createView({ tag, className, textContent, callback = (): null => null }: ElementParams): ElementCreator {
+  // TODO:callback null or function, not return null
+  private createView({ tag, className, textContent, callback }: ElementParams): ElementCreator {
     const data: ElementParams = {
       tag,
       className,
@@ -20,7 +21,6 @@ export default class View {
       callback,
     };
 
-    const elementCreator: ElementCreator = new ElementCreator(data);
-    return elementCreator;
+    return new ElementCreator(data);
   }
 }

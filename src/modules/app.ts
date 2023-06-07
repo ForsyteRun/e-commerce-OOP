@@ -4,6 +4,7 @@ import Header from './view/header/header';
 import Home from './view/main/home/home';
 import Main from './view/main/main';
 
+// TODO: remove in types.ts
 export interface ViewType {
   elementCreator: ElementCreator;
   getHTMLElement(): HTMLElement | null;
@@ -14,15 +15,18 @@ export default class App {
     this.createView();
   }
 
-  createView(): void {
-    const footerView: Footer = new Footer();
+  private createView(): void {
     const headerView: Header = new Header(new Main());
     const mainView: Main = new Main();
+    const footerView: Footer = new Footer();
 
     mainView.setContent(new Home());
 
-    document.body.append(headerView.getHTMLElement() as Node);
-    document.body.append(mainView.getHTMLElement() as Node);
-    document.body.append(footerView.getHTMLElement() as Node);
+    // TODo: должны быть видны только необходимые методы и свойства
+    document.body.append(
+      headerView.getHTMLElement() as Node,
+      mainView.getHTMLElement() as Node,
+      footerView.getHTMLElement() as Node,
+    );
   }
 }
